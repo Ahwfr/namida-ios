@@ -9,6 +9,8 @@ abstract class TagsExtractor {
   static TagsExtractor platform() {
     return NamidaPlatformBuilder.init(
       android: () => _TagsExtractorAndroid._init(),
+      ios: () => _TagsExtractorDesktop._internal(),
+      macos: () => _TagsExtractorDesktop._internal(),
       windows: () => _TagsExtractorDesktop._internal(),
       linux: () => _TagsExtractorDesktop._internal(),
     );

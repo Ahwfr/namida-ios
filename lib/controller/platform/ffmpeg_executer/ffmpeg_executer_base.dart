@@ -4,6 +4,8 @@ abstract class FFMPEGExecuter {
   static FFMPEGExecuter platform() {
     return NamidaPlatformBuilder.init(
       android: () => _FFMPEGExecuterAndroid(),
+      ios: () => _FFMPEGExecuterAndroid(),
+      macos: () => _FFMPEGExecuterAndroid(),
       windows: () => _FFMPEGExecuterDesktop(),
       linux: () => _FFMPEGExecuterDesktop(),
     );

@@ -6,6 +6,8 @@ abstract class NamidaChannel {
   static NamidaChannel _platform() {
     return NamidaPlatformBuilder.init(
       android: () => _NamidaChannelAndroid._init(),
+      ios: () => _NamidaChannelIOS._internal(),
+      macos: () => _NamidaChannelLinux._internal(),
       windows: () => _NamidaChannelWindows._internal(),
       linux: () => _NamidaChannelLinux._internal(),
     );
@@ -13,6 +15,8 @@ abstract class NamidaChannel {
 
   static final defaultIconForPlatform = NamidaPlatformBuilder.init(
     android: () => NamidaAppIcons.namida,
+    ios: () => NamidaAppIcons.namida,
+    macos: () => NamidaAppIcons.mini,
     windows: () => NamidaAppIcons.mini,
     linux: () => NamidaAppIcons.mini,
   );

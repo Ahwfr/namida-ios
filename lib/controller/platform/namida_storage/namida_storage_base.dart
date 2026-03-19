@@ -8,6 +8,8 @@ abstract class NamidaStorage {
   static NamidaStorage _platform() {
     return NamidaPlatformBuilder.init(
       android: () => _NamidaStorageAndroid._init(),
+      ios: () => const _NamidaStorageIOS(),
+      macos: () => const _NamidaStorageLinux(),
       windows: () => const _NamidaStorageWindows(),
       linux: () => const _NamidaStorageLinux(),
     );

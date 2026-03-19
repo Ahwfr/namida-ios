@@ -16,6 +16,7 @@ import 'package:namida/core/extensions.dart';
 import 'package:namida/core/translations/language.dart';
 
 part 'namida_storage_android.dart';
+part 'namida_storage_ios.dart';
 part 'namida_storage_base.dart';
 part 'namida_storage_windows.dart';
 part 'namida_storage_linux.dart';

@@ -10,6 +10,7 @@ import 'package:namida/core/extensions.dart';
 import 'package:namida/core/utils.dart';
 
 part 'namida_channel_android.dart';
+part 'namida_channel_ios.dart';
 part 'namida_channel_base.dart';
 part 'namida_channel_windows.dart';
 part 'namida_channel_linux.dart';

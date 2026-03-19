@@ -18,6 +18,8 @@ class NotificationManager {
   static NotificationManager _platform() {
     return NamidaPlatformBuilder.init(
       android: () => const NotificationManager._(),
+      ios: () => const _NotificationManagerSuppressed._(),
+      macos: () => const _NotificationManagerSuppressed._(),
       windows: () => const _NotificationManagerSuppressed._(),
       linux: () => const _NotificationManagerSuppressed._(),
     );

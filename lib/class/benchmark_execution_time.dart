@@ -96,6 +96,8 @@ class BenchmarkExecutionTimeWithLogger extends BenchmarkExecutionTime {
       final filename = 'NAMIDA_LOGGER_$filenameSuffix.txt';
       final String dirPath = NamidaPlatformBuilder.init(
         android: () => '/storage/emulated/0/Documents/',
+        ios: () => Directory.systemTemp.path,
+        macos: () => Directory.systemTemp.path,
         windows: () => Directory.systemTemp.path,
         linux: () => Directory.systemTemp.path,
       );

@@ -4,6 +4,8 @@ abstract class WaveformExtractor {
   static WaveformExtractor platform() {
     return NamidaPlatformBuilder.init(
       android: () => _WaveformExtractorAndroid._internal(NamidaFFMPEG.inst),
+      ios: () => _WaveformExtractorWindows._internal(NamidaFFMPEG.inst),
+      macos: () => _WaveformExtractorWindows._internal(NamidaFFMPEG.inst),
       windows: () => _WaveformExtractorWindows._internal(NamidaFFMPEG.inst),
       linux: () => _WaveformExtractorWindows._internal(NamidaFFMPEG.inst),
     );

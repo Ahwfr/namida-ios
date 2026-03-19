@@ -620,6 +620,8 @@ class AppPaths {
   static String _getFallbackLogsFilePath() {
     return NamidaPlatformBuilder.init(
       android: () => '/storage/emulated/0/Documents/namida_logs.txt',
+      ios: () => FileParts.joinPath(Directory.systemTemp.path, 'namida_logs.txt'),
+      macos: () => FileParts.joinPath(Directory.systemTemp.path, 'namida_logs.txt'),
       windows: () {
         final home = NamidaPlatformBuilder.windowsNamidaHome;
         if (home != null && home.isNotEmpty) return FileParts.joinPath(home, 'Logs', 'namida_logs.txt');
