@@ -1,28 +1,40 @@
-name: Build Namida iOS IPA
+name: Build iOS IPA
 
 on:
+  push:
+    branches: [ main, master ]
   workflow_dispatch:
 
 jobs:
   build-ios:
     runs-on: macos-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Flutter (from pubspec.yaml)
+      - name: Configure Git for GitHub deps
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: pubspec.yaml
+          flutter-version: '3.41.5'
+          channel: 'stable'
 
-      - name: Install Flutter dependencies
+      - name: Install dependencies
         run: flutter pub get
 
-      - name: Build iOS IPA (no codesign)
-        run: flutter build ipa --release --no-codesign
+      - name: Build iOS (no codesign)
+        run: flutter build ios --release --no-codesign
 
-      - name: Upload IPA artifact
+      - name: Create IPA
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r Namida.ipa Payload/
+
+      - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
-          name: Namida-iOS-IPA
-          path: build/ios/ipa/*.ipa
+          name: Namida-iOS
+          path: Namida.ipa
