@@ -129,8 +129,7 @@ dependencies:
     git:
       url: https://github.com/namidaco/youtipie
   namico_login_manager:
-    git:
-      url: https://github.com/namidaco/namico_login_manager
+    path: packages/namico_login_manager
 
   namico_subscription_manager:
     path: packages/namico_subscription_manager
