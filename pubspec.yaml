@@ -125,9 +125,9 @@ dependencies:
     git:
       url: https://github.com/MSOB7YY/ffmpeg-kit
       path: flutter/flutter
+  # Local stub: disables all YouTube features in this fork.
   youtipie:
-    git:
-      url: https://github.com/namidaco/youtipie
+    path: packages/youtipie
   namico_login_manager:
     path: packages/namico_login_manager
 

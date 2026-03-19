@@ -1,4 +1,5 @@
-name: namico_login_manager
+name: youtipie
+description: "Local stub of youtipie for the Ahwfr/namida-ios fork (YouTube features disabled)."
 version: 0.0.1
 publish_to: "none"
 
@@ -8,7 +9,4 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # Use the local youtipie stub from this repo.
-  youtipie:
-    path: ../youtipie
 
