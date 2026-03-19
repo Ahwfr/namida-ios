@@ -8,16 +8,14 @@ on:
 jobs:
   build-ios:
     runs-on: macos-latest
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Setup Git credentials
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global url."https://${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/".insteadOf "https://github.com/"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
